@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.RegistersDao" >
+  <resultMap id="BaseResultMap" type="com.entity.Registers" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="person_type" property="personType" jdbcType="VARCHAR" />
+    <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="operate_type" property="operateType" jdbcType="VARCHAR" />
+    <result column="systime" property="systime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,user_id,user_name,person_type,ip_address,operate_type,systime
+  </sql>
+  <insert id="insert" parameterType="com.entity.Registers" >
+    insert into registers (user_id,user_name,person_type,ip_address,operate_type,systime
+      )
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{personType,jdbcType=VARCHAR}, 
+      #{ipAddress,jdbcType=VARCHAR}, #{operateType,jdbcType=VARCHAR}, #{systime,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

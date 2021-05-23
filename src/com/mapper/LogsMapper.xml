@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.LogsDao" >
+  <resultMap id="BaseResultMap" type="com.entity.Logs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="operate_object" property="operateObject" jdbcType="VARCHAR" />
+    <result column="operate_id" property="operateId" jdbcType="INTEGER" />
+    <result column="operate_name" property="operateName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="systime" property="systime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,user_id,user_name,ip_address,operate_object,operate_id,operate_name,content,systime
+  </sql>
+  <insert id="insert" parameterType="com.entity.Logs" >
+    insert into logs (user_id,user_name,ip_address,operate_object,operate_id,operate_name,content,systime
+      )
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{ipAddress,jdbcType=VARCHAR}, 
+      #{operateObject,jdbcType=VARCHAR}, #{operateId,jdbcType=INTEGER},#{operateName,jdbcType=VARCHAR},  
+      #{content,jdbcType=VARCHAR}, #{systime,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

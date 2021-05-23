@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.HistoriesDao" >
+  <resultMap id="BaseResultMap" type="com.entity.Histories" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="good_id" property="goodId" jdbcType="INTEGER" />
+    <result column="good_name" property="goodName" jdbcType="VARCHAR" />
+    <result column="good_type" property="goodType" jdbcType="INTEGER" />
+    <result column="systime" property="systime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,user_id,user_name,good_id,good_name,good_type,systime
+  </sql>
+  <insert id="insert" parameterType="com.entity.Histories" >
+    insert into histories (user_id,user_name,good_id,good_name,good_type,systime
+      )
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{goodId,jdbcType=INTEGER}, 
+      #{goodName,jdbcType=VARCHAR}, #{goodType,jdbcType=INTEGER}, #{systime,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>
